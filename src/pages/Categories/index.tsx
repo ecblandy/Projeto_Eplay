@@ -1,101 +1,55 @@
+import { useEffect, useState } from 'react'
 import ProductsList from '../../components/ProductsList'
-import Game from '../../models/Game'
-import residente from '../../assets/images/resident.png'
-import diablo from '../../assets/images/diablo.png'
-import zelda from '../../assets/images/zelda.png'
-import starWars from '../../assets/images/star_wars.png'
-const promocoes: Game[] = [
-  {
-    id: 1,
-    category: 'Ação',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus veniam minima aspernatur esse delectus officiis sed incidunt recusandae labore odio a, distinctio quia fugiat magni velit vero voluptatibus facilis accusantium!',
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    infos: ['10%', 'R$250,00'],
-    image: residente
-  },
-  {
-    id: 2,
-    category: 'Ação',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus veniam minima aspernatur esse delectus officiis sed incidunt recusandae labore odio a, distinctio quia fugiat magni velit vero voluptatibus facilis accusantium!',
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    infos: ['10%', 'R$250,00'],
-    image: diablo
-  },
-  {
-    id: 3,
-    category: 'Ação',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus veniam minima aspernatur esse delectus officiis sed incidunt recusandae labore odio a, distinctio quia fugiat magni velit vero voluptatibus facilis accusantium!',
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    infos: ['10%', 'R$250,00'],
-    image: zelda
-  },
-  {
-    id: 4,
-    category: 'Ação',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus veniam minima aspernatur esse delectus officiis sed incidunt recusandae labore odio a, distinctio quia fugiat magni velit vero voluptatibus facilis accusantium!',
-    title: 'Resident Evil 4',
-    system: 'PS5',
-    infos: ['5%', 'R$290,00'],
-    image: starWars
-  }
-]
+import { Game } from '../Home'
 
-const emBreve: Game[] = [
-  {
-    id: 5,
-    category: 'RPG',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus veniam minima aspernatur esse delectus officiis sed incidunt recusandae labore odio a, distinctio quia fugiat magni velit vero voluptatibus facilis accusantium!',
-    title: 'Diablo 4',
-    system: 'Windows',
-    infos: ['17/05'],
-    image: diablo
-  },
-  {
-    id: 6,
-    category: 'RPG',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus veniam minima aspernatur esse delectus officiis sed incidunt recusandae labore odio a, distinctio quia fugiat magni velit vero voluptatibus facilis accusantium!',
-    title: 'Zelda',
-    system: 'Windows',
-    infos: ['17/05'],
-    image: zelda
-  },
-  {
-    id: 7,
-    category: 'RPG',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus veniam minima aspernatur esse delectus officiis sed incidunt recusandae labore odio a, distinctio quia fugiat magni velit vero voluptatibus facilis accusantium!',
-    title: 'Star Wars',
-    system: 'Windows',
-    infos: ['17/05'],
-    image: starWars
-  },
-  {
-    id: 8,
-    category: 'RPG',
-    description:
-      'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus veniam minima aspernatur esse delectus officiis sed incidunt recusandae labore odio a, distinctio quia fugiat magni velit vero voluptatibus facilis accusantium!',
-    title: 'Resident Evil 4',
-    system: 'Windows',
-    infos: ['17/05'],
-    image: residente
-  }
-]
+const Home = () => {
+  const [gamesAcao, setGamesAcao] = useState<Game[]>([])
+  const [gamesEsportes, setGamesEsportes] = useState<Game[]>([])
+  const [gamesSimulacao, setGamesSimulacao] = useState<Game[]>([])
+  const [gamesLuta, setGamesLuta] = useState<Game[]>([])
+  const [gamesRPG, setGamesRPG] = useState<Game[]>([])
 
-const Home = () => (
-  <>
-    <ProductsList games={promocoes} title="RPG" background="gray" />
-    <ProductsList games={emBreve} title="Ação" background="black" />
-    <ProductsList games={promocoes} title="Aventura" background="gray" />
-    <ProductsList games={emBreve} title="FPS" background="black" />
-  </>
-)
+  useEffect(() => {
+    const ENDPOINT_ACAO = 'https://fake-api-tau.vercel.app/api/eplay/acao'
+    const ENDPOINT_ESPORTES =
+      'https://fake-api-tau.vercel.app/api/eplay/esportes'
+    const ENDPOINT_SIMULACAO =
+      'https://fake-api-tau.vercel.app/api/eplay/simulacao'
+    const ENDPOINT_LUTA = 'https://fake-api-tau.vercel.app/api/eplay/luta'
+    const ENDPOINT_RPG = 'https://fake-api-tau.vercel.app/api/eplay/rpg'
+
+    fetch(ENDPOINT_ACAO)
+      .then((res) => res.json())
+      .then((res) => setGamesAcao(res))
+
+    fetch(ENDPOINT_ESPORTES)
+      .then((res) => res.json())
+      .then((res) => setGamesEsportes(res))
+
+    fetch(ENDPOINT_SIMULACAO)
+      .then((res) => res.json())
+      .then((res) => setGamesSimulacao(res))
+
+    fetch(ENDPOINT_LUTA)
+      .then((res) => res.json())
+      .then((res) => setGamesLuta(res))
+
+    fetch(ENDPOINT_RPG)
+      .then((res) => res.json())
+      .then((res) => setGamesRPG(res))
+  }, [])
+  return (
+    <>
+      <ProductsList games={gamesAcao} title="Ação" background="black" />
+      <ProductsList games={gamesEsportes} title="Esportes" background="gray" />
+      <ProductsList
+        games={gamesSimulacao}
+        title="Simulação"
+        background="black"
+      />
+      <ProductsList games={gamesLuta} title="Luta" background="gray" />
+      <ProductsList games={gamesRPG} title="RPG" background="black" />
+    </>
+  )
+}
 export default Home
