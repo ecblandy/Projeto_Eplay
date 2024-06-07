@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-
+import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
 
@@ -33,28 +32,18 @@ export type Game = {
 }
 
 const Home = () => {
-  const [promocoes, setPromocoes] = useState<Game[]>([])
-  const [destaque, setDestaque] = useState<Game[]>([])
+  const { data: onSaleGames } = useGetOnSaleQuery()
+  const { data: soonGames } = useGetSoonQuery()
+  if (onSaleGames && soonGames) {
+    return (
+      <>
+        <Banner />
+        <ProductsList games={onSaleGames} title="Promoções" background="gray" />
+        <ProductsList games={soonGames} title="Em breve" background="black" />
+      </>
+    )
+  }
 
-  useEffect(() => {
-    const ENDPOINT_PROMO = 'https://fake-api-tau.vercel.app/api/eplay/promocoes'
-    fetch(ENDPOINT_PROMO)
-      .then((res) => res.json())
-      .then((res) => setPromocoes(res))
-
-    const ENDPOINT_DESTAQUE =
-      'https://fake-api-tau.vercel.app/api/eplay/em-breve'
-    fetch(ENDPOINT_DESTAQUE)
-      .then((res) => res.json())
-      .then((res) => setDestaque(res))
-  }, [])
-
-  return (
-    <>
-      <Banner />
-      <ProductsList games={promocoes} title="Promoções" background="gray" />
-      <ProductsList games={destaque} title="Em breve" background="black" />
-    </>
-  )
+  return <h2>Carregando...</h2>
 }
 export default Home

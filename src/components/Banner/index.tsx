@@ -1,22 +1,13 @@
 import * as S from './styled'
-import { Game } from '../../pages/Home'
 import { formataPreco } from '../ProductsList'
 import Tag from '../Tag'
 import Button from '../Button'
-import { useEffect, useState } from 'react'
+import { useGetFeaturedGameQuery } from '../../services/api'
 const Banner = () => {
-  const [game, setGame] = useState<Game>()
-
-  useEffect(() => {
-    const ENDPOINT_DESTAQUE =
-      'https://fake-api-tau.vercel.app/api/eplay/destaque'
-    fetch(ENDPOINT_DESTAQUE)
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [])
+  const { data: game } = useGetFeaturedGameQuery()
 
   if (!game) {
-    return <h3>Carregando </h3>
+    return <h3>Carregando...</h3>
   }
   return (
     <S.Imagem style={{ backgroundImage: `url(${game.media.cover})` }}>
