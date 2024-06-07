@@ -54,4 +54,8 @@ export const Infos = styled.div`
       text-decoration: line-through;
     }
   }
+
+  button {
+    cursor: pointer;
+  }
 `

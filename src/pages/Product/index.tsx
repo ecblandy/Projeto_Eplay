@@ -4,7 +4,6 @@ import { Game } from '../Home'
 import Hero from '../../components/Hero'
 import Section from '../../components/section'
 import Gallery from '../../components/Gallery'
-import residentEvil from '../../assets/images/resident.png'
 const Product = () => {
   const { id } = useParams()
   const [game, setGame] = useState<Game>()
@@ -21,7 +20,7 @@ const Product = () => {
   }
   return (
     <>
-      <Hero />
+      <Hero game={game} />
       <Section title="Sobre o jogo" background="black">
         <p>{game.description}</p>
       </Section>
@@ -42,7 +41,11 @@ const Product = () => {
         </p>
       </Section>
 
-      <Gallery defaultCover={residentEvil} name="Jogo Teste" />
+      <Gallery
+        defaultCover={game.media.cover}
+        name={game.name}
+        items={game.media.gallery}
+      />
     </>
   )
 }

@@ -8,6 +8,7 @@ type Props = {
   description: string
   infos: string[]
   image: string
+  id: number
 }
 
 const Product = ({
@@ -16,7 +17,8 @@ const Product = ({
   category,
   description,
   image,
-  infos
+  infos,
+  id
 }: Props) => {
   const getDescricao = (descricao: string) => {
     if (descricao.length > 95) {
@@ -26,7 +28,7 @@ const Product = ({
     return descricao
   }
   return (
-    <S.Card>
+    <S.Card to={`/product/${id}`}>
       <img src={image} alt="" />
       <S.Infos>
         {infos.map((info) => (
