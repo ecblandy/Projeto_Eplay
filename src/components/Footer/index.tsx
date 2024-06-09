@@ -9,13 +9,11 @@ const Footer = () => (
         <S.SectionFooterTitle>Categorias</S.SectionFooterTitle>
         <S.LinksFooter>
           <li>
-            <S.LinkFooter>RPG</S.LinkFooter>
-            <S.LinkFooter>Ação</S.LinkFooter>
-            <S.LinkFooter>Aventura</S.LinkFooter>
-            <S.LinkFooter>Esportes</S.LinkFooter>
-            <S.LinkFooter>Simulação</S.LinkFooter>
-            <S.LinkFooter>Estrategia</S.LinkFooter>
-            <S.LinkFooter>FPS</S.LinkFooter>
+            <S.LinkFooter to="/categories#rpg">RPG</S.LinkFooter>
+            <S.LinkFooter to="/categories#action">Ação</S.LinkFooter>
+            <S.LinkFooter to="/categories#sports">Esportes</S.LinkFooter>
+            <S.LinkFooter to="/categories#simulation">Simulação</S.LinkFooter>
+            <S.LinkFooter to="/categories#fight">Luta</S.LinkFooter>
           </li>
         </S.LinksFooter>
       </S.FooterSection>
@@ -23,9 +21,8 @@ const Footer = () => (
         <S.SectionFooterTitle>Acesso rápido</S.SectionFooterTitle>
         <S.LinksFooter>
           <li>
-            <S.LinkFooter>Novidades</S.LinkFooter>
-            <S.LinkFooter>Promoção</S.LinkFooter>
-            <S.LinkFooter>Em breve</S.LinkFooter>
+            <S.LinkFooter to="/#on-sale">Promoção</S.LinkFooter>
+            <S.LinkFooter to="/#coming-soon">Em breve</S.LinkFooter>
           </li>
         </S.LinksFooter>
       </S.FooterSection>

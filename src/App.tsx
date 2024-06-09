@@ -5,6 +5,7 @@ import Rotas from './routes'
 import Footer from './components/Footer'
 import { Provider } from 'react-redux'
 import store from './store'
+import Cart from './components/cart'
 function App() {
   return (
     <Provider store={store}>
@@ -15,6 +16,7 @@ function App() {
         </div>
         <Rotas />
         <Footer />
+        <Cart />
       </BrowserRouter>
     </Provider>
   )
