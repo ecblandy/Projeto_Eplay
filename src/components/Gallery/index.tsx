@@ -1,10 +1,7 @@
 import { useState } from 'react'
 
 // Components
-import Section from '../section'
-
-// Interface
-import { GalleryItem } from '../../pages/Home'
+import Section from '../Section'
 
 // Images
 import play from '../../assets/images/play.png'

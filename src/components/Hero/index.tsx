@@ -5,8 +5,7 @@ import Tag from '../Tag'
 // Functions
 import { addCart, openCart } from '../../store/reducers/cart'
 import { parseToBrl } from '../../utils'
-// Type
-import { Game } from '../../pages/Home'
+
 // Styles
 import * as S from './styles'
 

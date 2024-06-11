@@ -1,18 +1,23 @@
 import { useParams } from 'react-router-dom'
 // Components
 import Hero from '../../components/Hero'
-import Section from '../../components/section'
+import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
+import Loader from '../../components/Loader'
 // Functions
 import { useGetGameQuery } from '../../services/api'
 
+type GameParams = {
+  id: string
+}
+
 const Product = () => {
-  const { id } = useParams()
+  const { id } = useParams() as GameParams
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const { data: game } = useGetGameQuery(id!)
+  const { data: game } = useGetGameQuery(id)
 
   if (!game) {
-    return <h3>Carregando</h3>
+    return <Loader />
   }
   return (
     <>
