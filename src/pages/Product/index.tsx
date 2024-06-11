@@ -1,8 +1,11 @@
 import { useParams } from 'react-router-dom'
+// Components
 import Hero from '../../components/Hero'
 import Section from '../../components/section'
 import Gallery from '../../components/Gallery'
+// Functions
 import { useGetGameQuery } from '../../services/api'
+
 const Product = () => {
   const { id } = useParams()
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

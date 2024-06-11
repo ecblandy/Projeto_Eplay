@@ -1,10 +1,14 @@
-import { Game } from '../../pages/Home'
+import { useDispatch } from 'react-redux'
+// Components
 import Button from '../Button'
 import Tag from '../Tag'
-import * as S from './styles'
+// Functions
 import { addCart, openCart } from '../../store/reducers/cart'
-import { formataPreco } from '../ProductsList'
-import { useDispatch } from 'react-redux'
+import { parseToBrl } from '../../utils'
+// Type
+import { Game } from '../../pages/Home'
+// Styles
+import * as S from './styles'
 
 type Props = {
   game: Game
@@ -30,17 +34,15 @@ const Hero = ({ game }: Props) => {
           <h2>{game.name}</h2>
           <p>
             {game.prices.discount && (
-              <span>De {formataPreco(game.prices.old)}</span>
+              <span>De {parseToBrl(game.prices.old)}</span>
             )}
 
-            {game.prices.current && (
-              <>Por {formataPreco(game.prices.current)}</>
-            )}
+            {game.prices.current && <>Por {parseToBrl(game.prices.current)}</>}
           </p>
 
           {game.prices.current && (
             <Button
-              variant="primary"
+              $variant="primary"
               type="button"
               title="Clique aqui para adicionar esse jogo ao carrinho"
               onClick={addToCart}

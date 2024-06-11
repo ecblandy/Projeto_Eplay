@@ -1,11 +1,17 @@
 import { useState } from 'react'
-import Section from '../section'
-import { GalleryItem } from '../../pages/Home'
-import * as S from './styles'
 
+// Components
+import Section from '../section'
+
+// Interface
+import { GalleryItem } from '../../pages/Home'
+
+// Images
 import play from '../../assets/images/play.png'
 import zoom from '../../assets/images/zoom.png'
-import close from '../../assets/images/fechar.png'
+import closeIcon from '../../assets/images/fechar.png'
+// Styles
+import * as S from './styles'
 
 type Props = {
   defaultCover: string
@@ -74,15 +80,11 @@ const Gallery = ({ defaultCover, name, items }: Props) => {
         </S.Items>
       </Section>
 
-      <S.Modal className={modal.isVisible ? 'visivel' : ''}>
+      <S.Modal className={modal.isVisible ? 'is-visible' : ''}>
         <S.ModalContent className="container">
           <header>
             <h4>{name}</h4>
-            <img
-              onClick={() => closeModal()}
-              src={close}
-              alt="Icone de fechar"
-            />
+            <img onClick={closeModal} src={closeIcon} alt="Icone de fechar" />
           </header>
           {modal.type === 'image' ? (
             <img src={modal.url} />
@@ -90,7 +92,7 @@ const Gallery = ({ defaultCover, name, items }: Props) => {
             <iframe src={modal.url} frameBorder={0}></iframe>
           )}
         </S.ModalContent>
-        <div className="overlay" onClick={() => closeModal()}></div>
+        <div className="overlay" onClick={closeModal}></div>
       </S.Modal>
     </>
   )

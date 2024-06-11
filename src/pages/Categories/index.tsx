@@ -1,4 +1,6 @@
+// Components
 import ProductsList from '../../components/ProductsList'
+// Functions
 import {
   useGetActionsGamesQuery,
   useGetFightGamesQuery,

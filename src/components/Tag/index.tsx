@@ -1,3 +1,4 @@
+// Styles
 import * as S from './styled'
 
 export type Props = {

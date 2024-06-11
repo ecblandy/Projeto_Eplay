@@ -1,6 +1,8 @@
-import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
+// Components
 import Banner from '../../components/Banner'
 import ProductsList from '../../components/ProductsList'
+// Functions
+import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
 
 export interface GalleryItem {
   type: 'image' | 'video'

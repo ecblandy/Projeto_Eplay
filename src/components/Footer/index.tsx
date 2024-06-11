@@ -1,3 +1,4 @@
+// Styles
 import * as S from './style'
 
 const currentYear = new Date().getFullYear()
@@ -9,11 +10,44 @@ const Footer = () => (
         <S.SectionFooterTitle>Categorias</S.SectionFooterTitle>
         <S.LinksFooter>
           <li>
-            <S.LinkFooter to="/categories#rpg">RPG</S.LinkFooter>
-            <S.LinkFooter to="/categories#action">Ação</S.LinkFooter>
-            <S.LinkFooter to="/categories#sports">Esportes</S.LinkFooter>
-            <S.LinkFooter to="/categories#simulation">Simulação</S.LinkFooter>
-            <S.LinkFooter to="/categories#fight">Luta</S.LinkFooter>
+            <S.LinkFooter
+              title="Clique aqui para acessar jogos de RPG"
+              to="/categories#rpg"
+            >
+              RPG
+            </S.LinkFooter>
+          </li>
+          <li>
+            <S.LinkFooter
+              title="Clique aqui para acessar jogos de ação"
+              to="/categories#action"
+            >
+              Ação
+            </S.LinkFooter>
+          </li>
+          <li>
+            <S.LinkFooter
+              title="Clique aqui para acessar jogos de esportes"
+              to="/categories#sports"
+            >
+              Esportes
+            </S.LinkFooter>
+          </li>
+          <li>
+            <S.LinkFooter
+              title="Clique aqui para acessar jogos de simulação"
+              to="/categories#simulation"
+            >
+              Simulação
+            </S.LinkFooter>
+          </li>
+          <li>
+            <S.LinkFooter
+              title="Clique aqui para acessar jogos de luta"
+              to="/categories#fight"
+            >
+              Luta
+            </S.LinkFooter>
           </li>
         </S.LinksFooter>
       </S.FooterSection>
@@ -21,8 +55,18 @@ const Footer = () => (
         <S.SectionFooterTitle>Acesso rápido</S.SectionFooterTitle>
         <S.LinksFooter>
           <li>
-            <S.LinkFooter to="/#on-sale">Promoção</S.LinkFooter>
-            <S.LinkFooter to="/#coming-soon">Em breve</S.LinkFooter>
+            <S.LinkFooter
+              title="Clique aqui para acessar a seção de promoções"
+              to="/#on-sale"
+            >
+              Promoção
+            </S.LinkFooter>
+            <S.LinkFooter
+              title="Clique aqui para acessar a seção de em breve"
+              to="/#coming-soon"
+            >
+              Em breve
+            </S.LinkFooter>
           </li>
         </S.LinksFooter>
       </S.FooterSection>
