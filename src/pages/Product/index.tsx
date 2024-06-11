@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 // Components
 import Hero from '../../components/Hero'
-import Section from '../../components/TempSection'
+import Section from '../../components/Section'
 import Gallery from '../../components/Gallery'
 import Loader from '../../components/Loader'
 // Functions

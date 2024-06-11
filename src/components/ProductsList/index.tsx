@@ -5,7 +5,7 @@ import Loader from '../Loader'
 import { parseToBrl } from '../../utils'
 
 // Styles
-import * as S from '../TempSection/styles'
+import * as S from '../Section/styles'
 
 export type Props = {
   title: string

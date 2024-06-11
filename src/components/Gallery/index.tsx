@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 // Components
-import Section from '../TempSection'
+import Section from '../Section'
 
 // Images
 import play from '../../assets/images/play.png'
