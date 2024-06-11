@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakPoints, colors } from '../../styles'
 import { TagContainer } from '../Tag/styled'
 import { ButtonContainer } from '../Button/styles'
 import closeIcon from '../../assets//images/fechar.png'
@@ -32,6 +32,9 @@ export const Sidebar = styled.aside`
   padding: 40px 16px 0px 16px;
   max-width: 360px;
   width: 100%;
+  @media (max-width: ${breakPoints.tablet}) {
+    width: 80%;
+  }
 
   ${ButtonContainer} {
     max-width: 100%;
